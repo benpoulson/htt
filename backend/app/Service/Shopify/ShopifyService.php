@@ -3,7 +3,6 @@
 namespace App\Service;
 
 use App\ShopifyStore;
-use Shopify\PrivateApi as ShopifyApi;
 use Shopify\Service\AbandonedCheckoutsService;
 use Shopify\Service\ApplicationChargeService;
 use Shopify\Service\ApplicationCreditService;
@@ -68,6 +67,7 @@ class ShopifyService
     {
         $this->shopifyStore = $shopifyStore;
         $this->client = new ShopifyApi([
+            'api_version' => '2020-04/',
             'api_key' => $shopifyStore->api_key,
             'password' => $shopifyStore->password,
             'shared_secret' => $shopifyStore->shared_secret,
