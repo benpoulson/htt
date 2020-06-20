@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col">
+        <h2>Stores</h2>
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">URL</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let store of stores">
+                <th scope="row">{{store.id}}</th>
+                <td>{{store.name}}</td>
+                <td>{{store.domain}}</td>
+                <td><a [routerLink]="[store.id]">Manage</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
