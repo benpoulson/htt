@@ -1,0 +1,40 @@
+version: '3'
+
+networks:
+  default:
+    external:
+      name: laravel
+
+services:
+
+  laravel:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    restart: always
+    ports:
+      - '8080:80'
+    depends_on:
+      - mysql
+    volumes:
+      - './:/var/www/html/:cached'
+    environment:
+      - WAIT_HOSTS=mysql:3306
+      - WAIT_HOSTS_TIMEOUT=300
+      - WAIT_SLEEP_INTERVAL=5
+      - WAIT_HOST_CONNECT_TIMEOUT=30
+
+  mysql:
+    image: 'mariadb:10.4'
+    restart: always
+    ports:
+      - '3306:3306'
+    volumes:
+      - 'mysql:/var/lib/mysql'
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: huel
+
+volumes:
+  mysql:
+    external: false

@@ -1,0 +1,2 @@
+# All of your crons will go in here
+* * * * * php /var/www/html/artisan schedule:run
