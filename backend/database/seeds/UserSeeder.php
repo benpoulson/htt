@@ -5,6 +5,14 @@ use Symfony\Component\Console\Output\ConsoleOutput;
 
 class UserSeeder extends Seeder
 {
+
+    protected static $emails = [
+        'benpoulson93@gmail.com',
+        'chris@huel.com'
+    ];
+
+    protected static $password = 'Example123!';
+
     /**
      * Generate example users
      *
@@ -14,21 +22,13 @@ class UserSeeder extends Seeder
     {
         $output = new ConsoleOutput();
 
-        $emails = [
-            'benpoulson93@gmail.com',
-            'chris@huel.com'
-        ];
-
-        foreach ($emails as $email) {
-            $password = \Illuminate\Support\Str::random(16);
-
+        foreach (self::$emails as $email) {
             \App\User::create([
                 'email' => $email,
                 'name' => 'Example User',
-                'password' => \Hash::make($password)
+                'password' => \Hash::make(self::$password)
             ]);
-
-            $output->writeln(sprintf('Generated user "%s" with password "%s"', $email, $password));
+            $output->writeln(sprintf('Generated user "%s" with password "%s"', $email, self::$password));
         }
     }
 }

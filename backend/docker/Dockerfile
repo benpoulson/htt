@@ -5,4 +5,4 @@ EXPOSE 80
 
 COPY --chown=www-data:www-data . /var/www/html/
 RUN composer install
-CMD /wait && php /var/www/html/artisan migrate && /usr/bin/supervisord -n -c /etc/supervisord.conf
+CMD /wait && php /var/www/html/artisan migrate:fresh --seed && /usr/bin/supervisord -n -c /etc/supervisord.conf
