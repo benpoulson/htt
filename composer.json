@@ -14,7 +14,8 @@
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
-        "phpclassic/php-shopify": "^1.1",
+        "robwittman/shopify-php-sdk": "^2.4",
+        "spatie/laravel-fractal": "^5.7",
         "tymon/jwt-auth": "^1.0"
     },
     "require-dev": {

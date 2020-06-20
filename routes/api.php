@@ -1,22 +1,20 @@
 <?php
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
+// Auth managed inside controller
+Route::group(['prefix' => 'auth'], function () {
+    Route::post('login', 'AuthController@login')->name('auth.login');
+    Route::post('logout', 'AuthController@logout')->name('auth.logout');
+    Route::post('refresh', 'AuthController@refresh')->name('auth.refresh');
+    Route::get('user', 'AuthController@user')->name('auth.user');
+});
 
 Route::group(['auth:api'], function () {
-    Route::post('login', 'AuthController@login');
-    Route::post('logout', 'AuthController@logout');
-    Route::post('refresh', 'AuthController@refresh');
-    Route::get('user', 'AuthController@user');
+    Route::group(['prefix' => 'shopify'], function () {
+        Route::get('', 'ShopifyStoreController@list')->name('shopify.list');
+        Route::post('', 'ShopifyStoreController@create')->name('shopify.create');
+        Route::get('{shopifyStore}', 'ShopifyStoreController@view')->name('shopify.view');
+        Route::post('{shopifyStore}', 'ShopifyStoreController@update')->name('shopify.update');
+        Route::delete('{shopifyStore}', 'ShopifyStoreController@delete')->name('shopify.delete');
+    });
 });

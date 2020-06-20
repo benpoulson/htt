@@ -2,10 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Transformers\MessageTransformer;
+use App\Transformers\UserTransformer;
 use Illuminate\Auth\AuthManager;
 use Illuminate\Http\JsonResponse;
 use Tymon\JWTAuth\JWT;
 
+/**
+ * Class AuthController
+ * @package App\Http\Controllers
+ */
 class AuthController extends Controller
 {
     /**
@@ -15,7 +21,12 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login']]);
+        $this->middleware('auth:api', [
+            'except' => [
+                'login',
+                'logout'
+            ]
+        ]);
     }
 
     /**
@@ -25,11 +36,14 @@ class AuthController extends Controller
      */
     public function login()
     {
-        $credentials = request(['email', 'password']);
+        $credentials = request([
+            'email',
+            'password'
+        ]);
         $token = auth()->attempt($credentials);
 
         if (!$token) {
-            return response()->json(['error' => 'Unauthorized'], 401);
+            return fractal('Invalid email or password', MessageTransformer::class)->respond(401);
         }
 
         return $this->respondWithToken($token);
@@ -42,7 +56,7 @@ class AuthController extends Controller
      */
     public function user()
     {
-        return response()->json(auth()->user());
+        return fractal(auth()->user(), UserTransformer::class)->respond();
     }
 
     /**
@@ -52,8 +66,11 @@ class AuthController extends Controller
      */
     public function logout()
     {
-        auth()->logout();
-        return response()->json(['message' => 'Successfully logged out']);
+        if (auth()->check()) {
+            auth()->logout();
+        }
+
+        return fractal('Successfully logged out', MessageTransformer::class)->respond();
     }
 
     /**
@@ -75,11 +92,10 @@ class AuthController extends Controller
      */
     protected function respondWithToken($token)
     {
-        return response()->json([
-            'access_token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => $this->getAuth()->factory()->getTTL() * 60
-        ]);
+        return fractal([
+            'jwt' => $token,
+            'ttl' => $this->getAuth()->factory()->getTTL() * 60
+        ], MessageTransformer::class)->respond();
     }
 
     /**
