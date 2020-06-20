@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Transformers\JWTTransformer;
 use App\Transformers\MessageTransformer;
 use App\Transformers\UserTransformer;
 use Illuminate\Auth\AuthManager;
@@ -92,10 +93,11 @@ class AuthController extends Controller
      */
     protected function respondWithToken($token)
     {
-        return fractal([
-            'jwt' => $token,
-            'ttl' => $this->getAuth()->factory()->getTTL() * 60
-        ], MessageTransformer::class)->respond();
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'bearer',
+            'expires_in' => $this->getAuth()->factory()->getTTL() * 60
+        ]);
     }
 
     /**

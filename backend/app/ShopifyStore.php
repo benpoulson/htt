@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Service\ShopifyService;
+use App\Service\Shopify\ShopifyService;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**

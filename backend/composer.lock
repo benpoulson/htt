@@ -5607,28 +5607,28 @@
         },
         {
             "name": "nunomaduro/larastan",
-            "version": "v0.6.0",
+            "version": "v0.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nunomaduro/larastan.git",
-                "reference": "849bbe8a6ae8b77357d3c7073050983e6ba4245e"
+                "reference": "7e333510eaaed6fc0e670c69fed148320ecb1cac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nunomaduro/larastan/zipball/849bbe8a6ae8b77357d3c7073050983e6ba4245e",
-                "reference": "849bbe8a6ae8b77357d3c7073050983e6ba4245e",
+                "url": "https://api.github.com/repos/nunomaduro/larastan/zipball/7e333510eaaed6fc0e670c69fed148320ecb1cac",
+                "reference": "7e333510eaaed6fc0e670c69fed148320ecb1cac",
                 "shasum": ""
             },
             "require": {
                 "composer/composer": "^1.0 || ^2.0",
                 "ext-json": "*",
-                "illuminate/console": "^6.0 || ^7.0",
-                "illuminate/container": "^6.0 || ^7.0",
-                "illuminate/contracts": "^6.0 || ^7.0",
-                "illuminate/database": "^6.0 || ^7.0",
-                "illuminate/http": "^6.0 || ^7.0",
-                "illuminate/pipeline": "^6.0 || ^7.0",
-                "illuminate/support": "^6.0 || ^7.0",
+                "illuminate/console": "^6.0 || ^7.0 || ^8.0",
+                "illuminate/container": "^6.0 || ^7.0 || ^8.0",
+                "illuminate/contracts": "^6.0 || ^7.0 || ^8.0",
+                "illuminate/database": "^6.0 || ^7.0 || ^8.0",
+                "illuminate/http": "^6.0 || ^7.0 || ^8.0",
+                "illuminate/pipeline": "^6.0 || ^7.0 || ^8.0",
+                "illuminate/support": "^6.0 || ^7.0 || ^8.0",
                 "mockery/mockery": "^0.9 || ^1.0",
                 "php": "^7.2",
                 "phpstan/phpstan": "^0.12.28",
@@ -5678,20 +5678,20 @@
                 "php",
                 "static analysis"
             ],
-            "time": "2020-06-10T17:10:33+00:00"
+            "time": "2020-06-20T12:11:51+00:00"
         },
         {
             "name": "pdepend/pdepend",
-            "version": "2.7.1",
+            "version": "2.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pdepend/pdepend.git",
-                "reference": "daba1cf0a6edaf172fa02a17807ae29f4c1c7471"
+                "reference": "c64472f8e76ca858c79ad9a4cf1e2734b3f8cc38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/daba1cf0a6edaf172fa02a17807ae29f4c1c7471",
-                "reference": "daba1cf0a6edaf172fa02a17807ae29f4c1c7471",
+                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/c64472f8e76ca858c79ad9a4cf1e2734b3f8cc38",
+                "reference": "c64472f8e76ca858c79ad9a4cf1e2734b3f8cc38",
                 "shasum": ""
             },
             "require": {
@@ -5725,7 +5725,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2020-02-08T12:06:13+00:00"
+            "time": "2020-06-20T10:53:13+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -5933,16 +5933,16 @@
         },
         {
             "name": "phpdocumentor/type-resolver",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "7462d5f123dfc080dfdf26897032a6513644fc95"
+                "reference": "30441f2752e493c639526b215ed81d54f369d693"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/7462d5f123dfc080dfdf26897032a6513644fc95",
-                "reference": "7462d5f123dfc080dfdf26897032a6513644fc95",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/30441f2752e493c639526b215ed81d54f369d693",
+                "reference": "30441f2752e493c639526b215ed81d54f369d693",
                 "shasum": ""
             },
             "require": {
@@ -5956,7 +5956,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.x-dev"
+                    "dev-1.x": "1.x-dev"
                 }
             },
             "autoload": {
@@ -5975,7 +5975,7 @@
                 }
             ],
             "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names",
-            "time": "2020-02-18T18:59:58+00:00"
+            "time": "2020-06-19T20:22:09+00:00"
         },
         {
             "name": "phpmd/phpmd",

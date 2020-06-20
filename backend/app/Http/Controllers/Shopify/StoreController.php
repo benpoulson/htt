@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Shopify;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\ShopifyStoreCreateRequest;
 use App\ShopifyStore;
 use App\Transformers\ShopifyStoreTransformer;
@@ -13,7 +14,7 @@ use Illuminate\Http\Request;
  * Class ShopifyStoreController
  * @package App\Http\Controllers
  */
-class ShopifyStoreController extends Controller
+class StoreController extends Controller
 {
     /**
      * Lists the stores

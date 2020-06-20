@@ -11,10 +11,14 @@ Route::group(['prefix' => 'auth'], function () {
 
 Route::group(['auth:api'], function () {
     Route::group(['prefix' => 'shopify'], function () {
-        Route::get('', 'ShopifyStoreController@list')->name('shopify.list');
-        Route::post('', 'ShopifyStoreController@create')->name('shopify.create');
-        Route::get('{shopifyStore}', 'ShopifyStoreController@view')->name('shopify.view');
-        Route::post('{shopifyStore}', 'ShopifyStoreController@update')->name('shopify.update');
-        Route::delete('{shopifyStore}', 'ShopifyStoreController@delete')->name('shopify.delete');
+        Route::get('', 'Shopify\StoreController@list')->name('shopify.list');
+        Route::post('', 'Shopify\StoreController@create')->name('shopify.create');
+        Route::get('{shopifyStore}', 'Shopify\StoreController@view')->name('shopify.view');
+        Route::post('{shopifyStore}', 'Shopify\StoreController@update')->name('shopify.update');
+        Route::delete('{shopifyStore}', 'Shopify\StoreController@delete')->name('shopify.delete');
+
+        Route::group(['prefix' => '{shopifyStore}/order'], function () {
+            Route::get('{orderId}', 'Shopify\OrderController@view')->name('shopify.order.view');
+        });
     });
 });

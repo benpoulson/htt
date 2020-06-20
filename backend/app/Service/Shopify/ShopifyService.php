@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Service;
+namespace App\Service\Shopify;
 
 use App\ShopifyStore;
 use Shopify\Service\AbandonedCheckoutsService;
@@ -48,7 +48,7 @@ use Shopify\Service\WebhookService;
 
 /**
  * Class ShopifyService
- * A wrapper class to integrate Laravel and the Shopify SDK together
+ * A wrapper class to better integrate the Shopify SDK into Laravel
  * @package App\Service
  */
 class ShopifyService
@@ -56,7 +56,7 @@ class ShopifyService
     /** @var ShopifyStore */
     protected $shopifyStore;
 
-    /** @var ShopifyApi */
+    /** @var CustomShopifyClient */
     protected $client;
 
     /**
@@ -66,7 +66,7 @@ class ShopifyService
     public function __construct(ShopifyStore $shopifyStore)
     {
         $this->shopifyStore = $shopifyStore;
-        $this->client = new ShopifyApi([
+        $this->client = new CustomShopifyClient([
             'api_version' => '2020-04/',
             'api_key' => $shopifyStore->api_key,
             'password' => $shopifyStore->password,
