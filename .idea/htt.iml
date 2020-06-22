@@ -27,6 +27,7 @@
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/filp/whoops" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/fruitcake/laravel-cors" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/fzaninotto/faker" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/gmostafa/php-graphql-client" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/guzzlehttp/guzzle" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/guzzlehttp/promises" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/guzzlehttp/psr7" />
@@ -65,6 +66,7 @@
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/phpunit/phpunit" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/psr/container" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/psr/event-dispatcher" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/psr/http-client" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/psr/http-message" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/psr/log" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/psr/simple-cache" />
@@ -72,7 +74,6 @@
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/ralouphie/getallheaders" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/ramsey/collection" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/ramsey/uuid" />
-      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/robwittman/shopify-php-sdk" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/scrivo/highlight.php" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/sebastian/code-unit-reverse-lookup" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/sebastian/comparator" />

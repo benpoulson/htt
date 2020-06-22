@@ -2,7 +2,9 @@
 
 namespace App;
 
-use App\Service\Shopify\ShopifyService;
+use App\Service\Shopify\ShopifyGraphQLClient;
+use App\Service\Shopify\ShopifyRestClient;
+use App\Service\Shopify\ShopifyServiceOld;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
@@ -67,11 +69,13 @@ class ShopifyStore extends EncryptableModel
         ];
     }
 
-    /**
-     * @return ShopifyService
-     */
-    public function getService(): ShopifyService
+    public function getGraphQLClient(): ShopifyGraphQLClient
     {
-        return new ShopifyService($this);
+        return new ShopifyGraphQLClient($this);
+    }
+
+    public function getRestClient(): ShopifyRestClient
+    {
+        return new ShopifyRestClient($this);
     }
 }

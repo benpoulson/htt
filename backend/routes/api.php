@@ -18,6 +18,7 @@ Route::group(['auth:api'], function () {
         Route::delete('{shopifyStore}', 'Shopify\StoreController@delete')->name('shopify.delete');
 
         Route::group(['prefix' => '{shopifyStore}/order'], function () {
+            Route::get('', 'Shopify\OrderController@list')->name('shopify.order.list');
             Route::get('{orderId}', 'Shopify\OrderController@view')->name('shopify.order.view');
         });
     });
