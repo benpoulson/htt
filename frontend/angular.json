@@ -105,6 +105,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "htt-frontend"
+    }
+  },
+  "defaultProject": "htt-frontend",
+  "cli": {
+    "defaultCollection": "@datorama/akita"
+  }
 }

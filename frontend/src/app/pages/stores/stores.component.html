@@ -10,8 +10,13 @@
                 <th scope="col"></th>
             </tr>
             </thead>
-            <tbody>
-            <tr *ngFor="let store of stores">
+            <tbody *ngIf="!list$">
+            <tr>
+                <td colspan="4">Loading...</td>
+            </tr>
+            </tbody>
+            <tbody *ngIf="list$">
+            <tr *ngFor="let store of (list$ | async)">
                 <th scope="row">{{store.id}}</th>
                 <td>{{store.name}}</td>
                 <td>{{store.domain}}</td>

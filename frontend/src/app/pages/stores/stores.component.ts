@@ -1,23 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-import {ApiClientService} from "../../services/api-client.service";
+import {Component, OnInit} from '@angular/core';
+import {StoresService} from "../../state/stores.service";
+import {StoresQuery} from "../../state/stores.query";
+import {Observable} from "rxjs";
+import {Store} from "../../state/store.model";
 
 @Component({
-  selector: 'app-stores',
-  templateUrl: './stores.component.html',
-  styleUrls: ['./stores.component.scss']
+    selector: 'app-stores',
+    templateUrl: './stores.component.html',
+    styleUrls: ['./stores.component.scss']
 })
 export class StoresComponent implements OnInit {
 
-    public constructor(private api: ApiClientService) {
+    list$?: Observable<Store[]>;
+
+    public constructor(private storesService: StoresService, private storesQuery: StoresQuery) {
 
     }
 
-  public stores = [];
-
-  ngOnInit(): void {
-      this.api.getStores().subscribe((data: any) => {
-          this.stores = data.data;
-      })
-  }
+    ngOnInit(): void {
+        this.storesService.getStores()
+        this.list$ = this.storesQuery.selectAll();
+    }
 
 }

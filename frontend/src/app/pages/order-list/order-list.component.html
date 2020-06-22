@@ -1,0 +1,36 @@
+<div *ngIf="orders$">
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th>Order ID</th>
+            <th>Customer Name</th>
+            <th>Financial Status</th>
+            <th>Order Value</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let order of (orders$ | async)">
+            <td>{{order.order_number}}</td>
+            <td>{{order.customer.first_name}} {{order.customer.last_name}}</td>
+            <td>{{order.financial_status}}</td>
+            <td>{{order.total_price}} {{order.currency}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item">
+                <a class="page-link" (click)="prevPage()" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">{{currentPage}}</a></li>
+            <li class="page-item">
+                <a class="page-link" (click)="nextPage()" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span><span class="sr-only">Next</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>

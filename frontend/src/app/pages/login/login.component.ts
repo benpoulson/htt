@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiClientService} from "../../services/api-client.service";
-import {JWTResponse} from "../../interfaces/JWTResponse";
+import {JWTLoginResponse} from "../../interfaces/JWTLoginResponse";
 import {Router} from "@angular/router"
 import * as moment from "moment";
 
@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     }
 
     public login() {
-        this.api.login(this.email, this.password).subscribe((data: JWTResponse) => {
+        this.api.login(this.email, this.password).subscribe((data: JWTLoginResponse) => {
             localStorage.setItem("access_token", data.access_token);
             localStorage.setItem("access_expires", moment().add(data.expires_in, "seconds").toISOString());
             this.router.navigate(['stores'])

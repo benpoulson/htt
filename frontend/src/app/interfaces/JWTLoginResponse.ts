@@ -1,4 +1,4 @@
-export interface JWTResponse {
+export interface JWTLoginResponse {
     access_token: string;
     token_type: string;
     expires_in: number;
